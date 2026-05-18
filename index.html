@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Zahin Abrar | Portfolio</title>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #f5f4f0;
+      --card: #ffffff;
+      --text: #1a1a18;
+      --muted: #888880;
+      --accent: #1a3a2a;
+      --accent-light: #e8efe9;
+      --border: #e2e0d8;
+      --tag-bg: #1a3a2a;
+      --tag-text: #ffffff;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background-color: var(--bg);
+      color: var(--text);
+      min-height: 100vh;
+      padding: 60px 20px 80px;
+    }
+
+    .container {
+      max-width: 780px;
+      margin: 0 auto;
+    }
+
+    /* Header */
+    header {
+      margin-bottom: 60px;
+      opacity: 0;
+      transform: translateY(20px);
+      animation: fadeUp 0.7s ease forwards;
+    }
+
+    .name {
+      font-family: 'DM Serif Display', serif;
+      font-size: 3rem;
+      color: var(--text);
+      line-height: 1.1;
+      margin-bottom: 10px;
+      letter-spacing: -0.5px;
+    }
+
+    .subtitle {
+      font-size: 0.95rem;
+      color: var(--muted);
+      font-weight: 300;
+      letter-spacing: 0.02em;
+    }
+
+    .divider {
+      width: 40px;
+      height: 2px;
+      background-color: var(--accent);
+      margin: 20px 0;
+    }
+
+    /* Projects */
+    .projects-label {
+      font-size: 0.75rem;
+      font-weight: 500;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 24px;
+      opacity: 0;
+      animation: fadeUp 0.7s ease 0.15s forwards;
+    }
+
+    .project {
+      background-color: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 28px;
+      margin-bottom: 20px;
+      opacity: 0;
+      transform: translateY(16px);
+      transition: box-shadow 0.2s ease, transform 0.2s ease;
+    }
+
+    .project:nth-child(1) { animation: fadeUp 0.6s ease 0.2s forwards; }
+    .project:nth-child(2) { animation: fadeUp 0.6s ease 0.3s forwards; }
+    .project:nth-child(3) { animation: fadeUp 0.6s ease 0.4s forwards; }
+    .project:nth-child(4) { animation: fadeUp 0.6s ease 0.5s forwards; }
+    .project:nth-child(5) { animation: fadeUp 0.6s ease 0.6s forwards; }
+
+    .project:hover {
+      box-shadow: 0 8px 24px rgba(0,0,0,0.07);
+      transform: translateY(-2px);
+    }
+
+    .project-header {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 16px;
+      margin-bottom: 16px;
+    }
+
+    .project-title {
+      font-family: 'DM Serif Display', serif;
+      font-size: 1.25rem;
+      color: var(--text);
+      line-height: 1.3;
+    }
+
+    .project-tag {
+      background-color: var(--tag-bg);
+      color: var(--tag-text);
+      font-size: 0.7rem;
+      font-weight: 500;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      padding: 4px 10px;
+      border-radius: 20px;
+      white-space: nowrap;
+      flex-shrink: 0;
+    }
+
+    .project-img {
+      width: 100%;
+      border-radius: 8px;
+      margin-bottom: 14px;
+      border: 1px solid var(--border);
+    }
+
+    .project-caption {
+      font-size: 0.85rem;
+      color: var(--muted);
+      line-height: 1.6;
+      margin-bottom: 16px;
+    }
+
+    .project-section-label {
+      font-size: 0.8rem;
+      font-weight: 500;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin: 20px 0 10px;
+    }
+
+    .project-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 0.85rem;
+      font-weight: 500;
+      color: var(--accent);
+      text-decoration: none;
+      border: 1px solid var(--accent);
+      padding: 6px 14px;
+      border-radius: 6px;
+      transition: background 0.15s ease, color 0.15s ease;
+      margin-top: 4px;
+    }
+
+    .project-link:hover {
+      background-color: var(--accent);
+      color: #fff;
+    }
+
+    .project-link svg {
+      width: 13px;
+      height: 13px;
+    }
+
+    /* Coming soon placeholder */
+    .coming-soon {
+      background-color: var(--accent-light);
+      border: 1.5px dashed #a8c4ad;
+      border-radius: 8px;
+      padding: 32px;
+      text-align: center;
+      color: var(--muted);
+      font-size: 0.9rem;
+    }
+
+    .coming-soon span {
+      display: block;
+      font-size: 1.5rem;
+      margin-bottom: 8px;
+    }
+
+    /* Footer */
+    footer {
+      margin-top: 60px;
+      text-align: center;
+      font-size: 0.82rem;
+      color: var(--muted);
+      opacity: 0;
+      animation: fadeUp 0.6s ease 0.7s forwards;
+    }
+
+    @keyframes fadeUp {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+
+    <header>
+      <div class="name">Zahin Abrar</div>
+      <div class="divider"></div>
+      <div class="subtitle">Financial Modeling & Data Portfolio &nbsp;·&nbsp; Risk, Modeling, and Analytics</div>
+    </header>
+
+    <div class="projects-label">Projects</div>
+
+    <div class="projects-list">
+
+      <!-- Project 1: CAPM -->
+      <div class="project">
+        <div class="project-header">
+          <div class="project-title">📊 CAPM Model: Johnson & Johnson vs. S&P 500</div>
+          <span class="project-tag">Python</span>
+        </div>
+        <!-- Replace capm.png with your actual chart image file -->
+        <img class="project-img" src="capm.png" alt="CAPM scatter plot">
+        <div class="project-caption">
+          Regression analysis of JNJ daily returns against the S&P 500 from 2020–2024. 
+          Beta of 0.48 indicates JNJ is a defensive, low-volatility stock that moves roughly 
+          half as much as the broader market. Negative alpha suggests slight underperformance 
+          relative to its predicted return given systematic risk.
+        </div>
+        <a class="project-link" href="#" target="_blank">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+          View Notebook
+        </a>
+      </div>
+
+    </div>
+
+    <footer>© 2025 Zahin Abrar</footer>
+
+  </div>
+</body>
+</html>
